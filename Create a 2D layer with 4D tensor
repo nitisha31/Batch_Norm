@@ -1,0 +1,7 @@
+import torch
+from torch import nn
+a = nn.BatchNorm2d(120)
+a = nn.BatchNorm2d(120, affine=False)
+inputs = torch.randn(20, 120, 55, 65)
+outputs = a(inputs)
+print(outputs)
