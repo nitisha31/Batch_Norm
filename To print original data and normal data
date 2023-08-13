@@ -1,0 +1,26 @@
+import numpy as np
+
+def batch_normalize(X, epsilon=1e-5):
+    # Calculate mean and variance of the batch
+    batch_mean = np.mean(X, axis=0)
+    batch_var = np.var(X, axis=0)
+
+    # Normalize the input using the mean and variance
+    X_normalized = (X - batch_mean) / np.sqrt(batch_var + epsilon)
+
+    return X_normalized
+
+import numpy as np
+
+# Sample input data (5 data points with 3 features each)
+data = np.array([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9],
+                 [10, 11, 12],
+                 [13, 14, 15]])
+
+# Perform batch normalization on the data
+normalized_data = batch_normalize(data)
+
+print("Original data:\n", data)
+print("\nNormalized data:\n", normalized_data)
