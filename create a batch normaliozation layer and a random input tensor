@@ -1,0 +1,17 @@
+import torch
+import torch.nn as nn
+
+# Create a batch normalization layer with 102 features
+n = nn.BatchNorm1d(102)
+
+# Without learnable parameters
+n = nn.BatchNorm1d(102, affine=False)
+
+# Create a random input tensor with 22 samples and 102 features
+inputval = torch.randn(22, 102)
+
+# Normalize the input
+outputval = n(inputval)
+
+# Print the normalized output
+print(outputval)
